@@ -1,11 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time-accurate Speech Rich Transcription with Non-fluencies</title>
+    <title>SSDM: Scalable Speech Dysfluency Modeling</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="helper-v2.js" defer=""></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Georgia', serif;
+            color: #007bff;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 16px;
+            font-size: 16px;
+        }
+
+        audio {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .timestamp-label {
+            color: gray;
+        }
+
+        table.wide-audio audio {
+            width: 40vw;
+            max-width: 40vw;
+        }
+
+        tr:not(:first-child) {
+            border-top: 1px solid lightgrey;
+        }
+
+        .container {
+            background: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .container h1,
+        .container h2 {
+            margin-top: 20px;
+        }
+
+        .pagination .page-link {
+            color: #007bff;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .page-link:hover {
+            background-color: #e9ecef;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .shadow-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .shadow-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 16px;
+            font-size: 18px;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #d1ecf1;
+        }
+
+        .header-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .instruction {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .reference-text {
+            font-size: 12px;
+            color: #495057;
+        }
+        .figure-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .figure-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
+
 <body>
-    <p>This is a project page.</p>
+    <div class="container pt-5 mt-5 text-center fade-in">
+        <h1>SSDM: Scalable Speech Dysfluency Modeling</h1>
+        <p>
+            <b>Abstract. </b> Speech is a hierarchical collection of text, prosody, emotions, dysfluencies, etc. Automatic transcription of speech that goes beyond text (words) is an underexplored problem. We focus on transcribing speech along with non-fluencies (dysfluencies). The current state-of-the-art pipeline suffers from complex architecture design, training complexity, and significant shortcomings in the local sequence aligner, and it does not explore in-context learning capacity. In this work, we propose SSDM 2.0, which tackles those shortcomings via four main contributions: (1) We propose a novel neural articulatory flow to derive highly scalable speech representations. (2) We developed a full-stack connectionist subsequence aligner that captures all types of dysfluencies.(3) We introduced a mispronunciation prompt pipeline and consistency learning module into LLM to leverage dysfluency in-context pronunciation learning abilities. (4) We curated Libri-Dys and open-sourced the current largest-scale co-dysfluency corpus, Libri-Co-Dys, for future research endeavors. Overall, SSDM 2.0 outperforms SSDM and all other dysfluency transcription models by a large margin. 
+        </p>
+
+    </div>
+
+    <br><br>
+
+    <!-- <div class="container pt-5 mt-5 text-center fade-in">
+        <h2>Dysfluency Evaluation Illustration</h2>
+
+        <p>
+            We provide a visualization on how dysfluency is evaluated in terms of both type (F1) and time (MS). F1 score is used for dysfluency type identification. 
+            We use Intersection over Union (IoU) for time-aware detection. IoU is computed between our predicted time boundaries and the ground truth boundaries. If the IoU is greater than 0.5, the dysfluency is identified as detected.
+        </p>
+
+        <div class="figure-container">
+            <img src="eval.png" alt="Dysfluency Evaluation Illustration Figure" id="figure">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to adjust figure size
+        function adjustFigureSize(width, height) {
+            var figure = document.getElementById('figure');
+            figure.style.width = width;
+            figure.style.height = height;
+        }
+
+        // Example of adjusting the figure size
+        adjustFigureSize('80%', 'auto'); // Adjust as needed
+    </script> -->
 </body>
+
 </html>
